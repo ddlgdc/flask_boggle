@@ -37,6 +37,9 @@ def submit_guess():
     # retreive the current board from the session
     board = session.get('board')
 
+    if 'score' not in session:
+        session['score'] = 0
+
     # check if guess is empty and return an error
     if not guess:
         # returns 400 erroor for empty guessed
@@ -47,7 +50,8 @@ def submit_guess():
 
     # return appropriate responses based on the result 
     if result == 'ok':
-        return jsonify(result = 'ok'), 200
+        session['score'] += 1
+        return jsonify(result = 'ok', score = session['score']), 200
     elif result == 'not-on-board':
         return jsonify(result = 'not-on-board'), 200
     else: 

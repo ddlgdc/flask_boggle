@@ -16,9 +16,14 @@ guessForm.addEventListener('submit', function(e){
     .then(response => {
         // gets result from response data
         const result = response.data.result;
+        // gets score from response
+        const score = response.data.score
+
         // check the result and alert user accordingly to result
         if (result === 'ok'){
             alert('Valid guess and its on the board!');
+            // updates the displayed score
+            document.getElementById('scoreValue').innerText = score;
         }
         else if (result === 'not-on-board'){
             alert('Word is valid but not on the board');
@@ -45,9 +50,12 @@ startButton.addEventListener('click', function(){
     const boardTable = document.getElementById('boardTable')
     // gets guess box element
     const guessBox = document.getElementById('guessBox');
+    // gets score box element
+    const scoreBox = document.getElementById('scoreBox');
 
     // toggles visibility of items
     boardTable.style.display = 'block';
     startButton.style.display = 'none';
     guessBox.style.display = 'block';
+    scoreBox.style.display = 'block'
 });
