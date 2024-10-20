@@ -1,0 +1,33 @@
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.screenBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.gameBox {
+    display: inline-block;
+    padding: 20px;
+}
+
+#boardTable {
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#boardTable td {
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    font-size: 24px; 
+}
+#boardTable td:hover {
+    background-color: red;
+}
