@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="flask/flask_boggle/static/js/script.js"></script>
     <title>Boggle</title>
 </head>
 <body>
     <div class="screenBox">
         <h1>Welcome to Boggle!</h1>
+
         <div class="gameBox">
             <button id="generate-board">Generate Board</button>
             <table id="boardTable" style="display: none;">
@@ -21,6 +24,14 @@
                 {% endfor %}
             </table>
         </div>
+
+        <div class="guessBox" id="guessBox" style="display: none;">
+            <form  action="/submitGuess" method="POST">
+                <input type="text" name="guess" placeholder="Enter your guess" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
