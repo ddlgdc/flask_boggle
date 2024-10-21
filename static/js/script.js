@@ -1,3 +1,19 @@
+// function to start gsame timer 
+function startGameTimer() {
+    alert('You have 60 seconds to play!');
+
+    // sets a timer for 60 seconds
+    setTimeout(function() {
+        alert('Time is up! No more guesses!');
+        disableGuessInput()
+    }, 60000);
+}
+
+function disableGuessInput() {
+    const guessInput = document.getElementById('guessBox');
+    guessInput.style.display = 'none';
+}
+
 // select the guess form element by ID
 const guessForm = document.getElementById('guessBox')
 // adds event listner for the form submission
@@ -58,4 +74,6 @@ startButton.addEventListener('click', function(){
     startButton.style.display = 'none';
     guessBox.style.display = 'block';
     scoreBox.style.display = 'block'
+
+    startGameTimer();
 });
